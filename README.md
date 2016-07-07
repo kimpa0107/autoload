@@ -1,5 +1,18 @@
 # PHP class autoload
 
+
+## 命名空间配置
+
+```php
+$namespaceConfig = array(
+    // '命名空间' => '指向目录',
+    'Kim'     => '.',
+    'Library' => './Library'
+);
+```
+
+## 自动载入
+
 ```php
 /**
  * 自定义类自动载入函数
@@ -9,8 +22,14 @@ function classLoader($className)
     // 注册并返回spl_autoload函数使用的默认文件扩展名
     spl_autoload_extensions('.class.php');
 
-    // 根据项目实际情况，处理包含命名空间(namespace)的类名
-    $className = preg_replace('/^RootNamespace\\\/i', '', $className);
+    // 命名空间转为实际路径
+    global $namespaceConfig;
+    foreach ($namespaceConfig as $root => $target) {
+        if (preg_match('/^' . $root . '/i', $className)) {
+            $className = preg_replace('/^' . $root . '/i', $target, $className);
+            break;
+        }
+    }
 
     // 命名空间(namespace)中的反斜杠转换为当前系统的目录分隔符
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
@@ -23,19 +42,17 @@ function classLoader($className)
 spl_autoload_register('classLoader');
 ```
 
-## Result of exec client.php
-
-```
+## 执行client.php结果
+```php
 Client::__construct() is running ...
 ```
----
+```php
+Kim\Controller\Controller::init() is running ...
+Kim\Controller\MainController::__construct() is running ...
+Library\Wechat::__construct() is running ...
+Library\Wechat::getError() is running ...
 ```
-RootNamespace\Controller\Controller::init() is running ...
-RootNamespace\Controller\MainController::__construct() is running ...
-RootNamespace\Library\Wechat::__construct() is running ...
-RootNamespace\Library\Wechat::getError() is running ...
+```php
+Kim\Controller\MainController::getUserInfo() is running ...
+Kim\Model\UserModel::getData() is running ...
 ```
----
-```
-RootNamespace\Controller\MainController::getUserInfo() is running ...
-RootNamespace\Model\UserModel::getData() is running ...

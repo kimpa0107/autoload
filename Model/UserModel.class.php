@@ -1,7 +1,7 @@
 <?php
-namespace RootNamespace\Model;
+namespace Kim\Model;
 
-use RootNamespace\Model\Model;
+use Kim\Model\Model;
 
 class UserModel extends Model
 {

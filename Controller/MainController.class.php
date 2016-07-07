@@ -1,9 +1,9 @@
 <?php
-namespace RootNamespace\Controller;
+namespace Kim\Controller;
 
-use RootNamespace\Controller\Controller;
-use RootNamespace\Model\UserModel;
-use RootNamespace\Library\Wechat as WechatSDK;
+use Kim\Controller\Controller;
+use Kim\Model\UserModel;
+use Library\Wechat as WechatSDK;
 
 class MainController extends Controller
 {

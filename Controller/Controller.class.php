@@ -1,5 +1,5 @@
 <?php
-namespace RootNamespace\Controller;
+namespace Kim\Controller;
 
 class Controller
 {

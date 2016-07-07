@@ -1,5 +1,5 @@
 <?php
-namespace RootNamespace\Model;
+namespace Kim\Model;
 
 abstract class Model
 {

@@ -1,5 +1,5 @@
 <?php
-namespace RootNamespace\Library;
+namespace Library;
 
 class Wechat
 {

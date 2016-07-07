@@ -1,5 +1,5 @@
 <?php
-use RootNamespace\Controller\MainController;
+use Kim\Controller\MainController;
 
 require_once __DIR__ . '/conf/require.php';
 
