@@ -4,10 +4,11 @@ require_once __DIR__ . '/define.php';
 require_once ROOT_PATH . '/Common/function.php';
 
 // 命名空间配置
+// 命名空间分多级时，反斜杠写3个
 $namespaceConfig = array(
     // '命名空间' => '指向目录',
     'Kim'     => '.',
-    'Library' => './Library'
+    'Vendor\\\Library' => './Library'
 );
 
 /**

@@ -3,7 +3,7 @@ namespace Kim\Controller;
 
 use Kim\Controller\Controller;
 use Kim\Model\UserModel;
-use Library\Wechat as WechatSDK;
+use Vendor\Library\Wechat as WechatSDK;
 
 class MainController extends Controller
 {

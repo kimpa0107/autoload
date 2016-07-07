@@ -1,5 +1,5 @@
 <?php
-namespace Library;
+namespace Vendor\Library;
 
 class Wechat
 {
