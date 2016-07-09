@@ -1,7 +1,7 @@
 <?php
 use Kim\Controller\MainController;
 
-require_once __DIR__ . '/conf/require.php';
+require_once __DIR__ . '/Conf/require.php';
 
 class Client
 {

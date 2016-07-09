@@ -16,8 +16,6 @@ $namespaceConfig = array(
  */
 function classLoader($className)
 {
-    // 注册并返回spl_autoload函数使用的默认文件扩展名
-    spl_autoload_extensions('.class.php');
     // 命名空间转为实际路径
     global $namespaceConfig;
     foreach ($namespaceConfig as $root => $target) {
@@ -28,8 +26,10 @@ function classLoader($className)
     }
     // 命名空间(namespace)中的反斜杠转换为当前系统的目录分隔符
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
+    $className = ltrim($className, '.');
+    $classFile = ROOT_PATH . $className . '.class.php';
     // 载入类
-    spl_autoload($className);
+    require_once $classFile;
 }
 // 注册给定的函数作为 __autoload 的实现
 spl_autoload_register('classLoader');
