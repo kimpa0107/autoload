@@ -31,7 +31,7 @@ function classLoader($className)
     // 命名空间(namespace)中的反斜杠转换为当前系统的目录分隔符
     $className = str_replace('\\', DIRECTORY_SEPARATOR, $className);
     $className = ltrim($className, '.');
-    $classFile = ROOT_PATH . $className;
+    $classFile = ROOT_PATH . $className . '.class.php';
 
     // 载入类
     require_once $classFile;
